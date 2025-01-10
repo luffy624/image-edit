@@ -1,0 +1,222 @@
+:root {
+  --background-light: linear-gradient(145deg, #f6f8fb 0%, #e9eef5 100%);
+  --background-dark: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 100%);
+  --text-light: #1e293b;
+  --text-dark: #e0e0e0;
+  --panel-light: white;
+  --panel-dark: #333333;
+  --border-light: #e0e0e0;
+  --border-dark: #404040;
+}
+
+
+.dark-mode {
+  --background: var(--background-dark);
+  --text: var(--text-dark);
+  --panel: var(--panel-dark);
+  --border: var(--border-dark);
+}
+
+
+:root {
+  --background: var(--background-light);
+  --text: var(--text-light);
+  --panel: var(--panel-light);
+  --border: var(--border-light);
+}
+
+
+.app-container {
+  min-height: 100vh;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+
+.kontainer-utama {
+  display: flex;
+  gap: 2rem;
+  max-width: 1450px;
+  margin: 0 auto 2rem auto;
+  padding: 2rem;
+  background-color: #34373b90;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+
+.area-gambar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--panel);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.area-gambar:hover {
+  transform: translateY(-5px);
+}
+
+.kanvas-gambar {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.panel-kontrol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--panel);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  color: var(--text);
+}
+
+
+.theme-toggle-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: var(--panel);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background: #2196f3;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.theme-toggle-button:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+}
+
+
+.dark-mode .theme-toggle-button {
+  background: #64b5f6;
+}
+
+.dark-mode .theme-toggle-button:hover {
+  background: #42a5f5;
+}
+
+
+.file-input {
+  padding: 1rem;
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  width: 95%;
+  transition: all 0.3s ease;
+  color: var(--text);
+}
+
+.file-input:hover {
+  border-color: #2196f3;
+  background: rgba(33, 150, 243, 0.1);
+}
+
+
+.grid-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #2196f3;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+}
+
+
+.tombol-batal {
+  background: #ff5252;
+}
+
+.tombol-batal:hover {
+  background: #ff1744;
+}
+
+.tombol-download {
+  background: #4caf50;
+}
+
+.tombol-download:hover {
+  background: #43a047;
+}
+
+
+h3 {
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #2196f3;
+  border-radius: 3px;
+}
+
+
+.kumpulan-tombol {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+
+@media (max-width: 1024px) {
+  .kontainer-utama {
+    flex-direction: column;
+  }
+  
+  .area-gambar,
+  .panel-kontrol {
+    width: 100%;
+  }
+  
+  .theme-toggle-container {
+    margin-top: 2rem;
+  }
+}
