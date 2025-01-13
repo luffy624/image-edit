@@ -8,7 +8,7 @@ export const resetUsedFunctions = () => {
 
 export const prosesGambar = (fungsi, kanvasRef) => {
     if (usedFunctions.has(fungsi)) {
-        alert(`Warning: ${fungsi} Filter sudah pernah digunakan sekali!`);
+        alert(`Warning: ${fungsi} filter sudah pernah digunakan sekali!`);
         return;
     }
 
@@ -20,7 +20,7 @@ export const prosesGambar = (fungsi, kanvasRef) => {
     const data = imgData.data;
 
     switch (fungsi) {
-        case 'threshold': {
+        case 'threshold':
             const nilai = 128;
             for (let i = 0; i < data.length; i += 4) {
                 const rata = (data[i] + data[i + 1] + data[i + 2]) / 3;
@@ -28,9 +28,8 @@ export const prosesGambar = (fungsi, kanvasRef) => {
                 data[i] = data[i + 1] = data[i + 2] = nilai_baru;
             }
             break;
-        }
 
-        case 'kecerahan': {
+        case 'kecerahan':
             const faktor = 30;
             for (let i = 0; i < data.length; i += 4) {
                 data[i] = Math.min(255, data[i] + faktor);
@@ -38,9 +37,8 @@ export const prosesGambar = (fungsi, kanvasRef) => {
                 data[i + 2] = Math.min(255, data[i + 2] + faktor);
             }
             break;
-        }
 
-        case 'erosi': {
+        case 'erosi':
             const tempDataErosi = new Uint8ClampedArray(data);
             const widthErosi = kanvas.width;
             for (let y = 1; y < kanvas.height - 1; y++) {
@@ -58,9 +56,8 @@ export const prosesGambar = (fungsi, kanvasRef) => {
                 }
             }
             break;
-        }
 
-        case 'dilasi': {
+        case 'dilasi':
             const tempDataDilasi = new Uint8ClampedArray(data);
             const widthDilasi = kanvas.width;
             for (let y = 1; y < kanvas.height - 1; y++) {
@@ -78,20 +75,18 @@ export const prosesGambar = (fungsi, kanvasRef) => {
                 }
             }
             break;
-        }
 
-        case 'grayscale': {
+        case 'grayscale':
             for (let i = 0; i < data.length; i += 4) {
                 const rata = (data[i] + data[i + 1] + data[i + 2]) / 3;
                 data[i] = data[i + 1] = data[i + 2] = rata;
             }
             break;
-        }
 
-        default: {
-            alert(`Fungsi ${fungsi} tidak dikenal.`);
-            return;
-        }
+            default:
+                // Jika fungsi tidak dikenali
+                alert(`Fungsi ${fungsi} tidak dikenal.`);
+                return;
     }
 
     ctx.putImageData(imgData, 0, 0);
